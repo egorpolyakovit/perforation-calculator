@@ -1,0 +1,768 @@
+div#calculator.app {
+    position: fixed;
+    top: 30px;
+    left: calc(50% - 480px);
+    z-index: 100;
+    display: block;
+    width: 960px;
+    min-height: 540px;
+    height: fit-content;
+    max-height: 540px;
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    border: 1px solid #dfdfdf;
+    border-radius: 10px;
+    box-shadow: 0 1px 2px #e2e2e2;
+}
+div#calculator * {
+    font-family: 'Roboto', Arial, sans-serif;
+}
+button.btn.calculator {
+    display: block;
+    max-width: 210px;
+    margin: 0 auto 0 0;
+    padding: 8px 12px 8px 12px;
+    background: linear-gradient(#FFC107, rgb(255 145 51));
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4de8e8e8', endColorstr='#adffffff',GradientType=0 );
+    border-radius: 3px;
+    border: 1px solid rgb(216 119 33);
+    box-shadow: 0 1px 0px #ddd;
+    font-size: 14px;
+    font-weight: bold;
+    text-shadow: 0px 1px 4px #de7316;
+    color: #fff;
+}
+button.btn.calculator:hover,
+button.btn.calculator:target {
+    background: #f3811f;
+    border: 1px solid #d56d14;
+    text-shadow: 0px 1px 4px #de7316;
+}
+div#calculator.app.hidden {
+    display: none !important;
+}
+div#calculator.app:before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;    
+    display: block;
+    width: 100%;
+    height: 100vh;    
+    background: rgba(221,221,221,95%);
+}
+div#calculator form#calculator {
+    position: fixed;
+    left: calc(50% - 480px);
+    right: calc(50% - 480px);
+    z-index: 101;
+    height: 545px;
+    background: #fff;
+    border-radius: 10px;   
+}
+div#calculator a.close {
+    position: fixed;
+    top: 41px;
+    right: auto;
+    left: calc(50% + 445px);
+    z-index: 2021;
+    display: block;
+    width: 24px;
+    height: 24px;
+    border: none;
+    border-radius: 0;
+    background-color: transparent;
+    background-image: url(../img/svg/close.svg);
+    background-size: 16px 16px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    opacity: 1;
+}
+div#calculator h2 {
+    margin: 0;
+    padding: 10px 0 10px 22px;
+    border-radius: 10px 10px 0 0;
+    border-top: 1px solid #db740b;
+    border-bottom: 1px solid #db740b;
+    font-size: 18px;
+    font-weight: normal;
+    color: #fff;     
+}
+div#calculator h2.hidden {
+    display: none;
+}
+div#calculator h2.visible {
+    display: block;
+}
+div#calculator .instruction.visible h3, 
+div#calculator .instruction.visible p, 
+div#calculator .instruction.visible ul li {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+div#calculator div.column {
+    display: inline-block;
+    width: calc(50% - 50px);
+    height: 426px;
+    padding: 20px;    
+    vertical-align: top;
+}
+div#calculator.column.right.illustrationBlock {
+    display: none;
+}
+div#calculator.column.right.illustrationBlock.visible {
+    display: inline-block;
+}
+div#calculator div.column.left.hidden,
+div#calculator div.column.right.hidden,
+div#calculator div.column.right.illustrationBlock.visible .instruction {
+    display:none;
+}
+div#calculator div.column.left.zIndexZero {
+    position: relative;
+    z-index: 0;
+    opacity: 0;    
+    width: 0;
+    height: 0;
+}
+div#calculator div.column.left.visible {
+    position:relative;
+    z-index:10;
+}
+div#orderForm.column.right.visible p sup {
+    color: red;
+}
+div#calculator div.column.right.illustration {
+    display: none;
+}
+div#calculator div.column.right.illustrationBlock.visible .instruction.visible {
+    display: inline-block;
+}
+div#calculator.column.right.illustrationBlock.visible div.instruction.visible p.contact {
+    padding-bottom: 10px;
+}
+div.instruction.visible p a.contact {
+    font-weight: 550;
+    color: #000;    
+    text-decoration: none;
+}
+div#calculator div.column.right.illustrationBlock.visible .instruction.visible ul {
+    padding-left: 0;
+}
+div#calculator div.column.right.illustrationBlock.visible .instruction.visible ul li {
+    margin-bottom: 0;
+    font-size: 13px;
+}
+div#calculator div.column.right.illustrationBlock.visible .instruction.visible ul li ul {
+    padding-top: 10px;
+    padding-left: 10px;
+}
+div#calculator div.column.right.illustration.visible {
+    width: 400px;
+}
+div.form-group.metric-size,
+div.form-group.drawing {
+    display: inline-block;
+    width: 180px;
+}
+div.form-group.row {
+    display: block;
+    margin-top: 15px;
+}
+div.form-group.row.typesHoles {
+    display: inline-block;
+    width: 158px;
+    margin-right: 22px;
+}
+div.form-group.row.settings {
+    width: 158px;
+}
+div#calculator div.column div.label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 15px;    
+}
+.select2-container--default .select2-selection--single {
+    height: 36px !important;
+    padding-top: 3px !important;
+    background-color: #fff;
+    border: 1px solid #767676 !important;
+    border-radius: 4px;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: #757575 !important;
+    font-size: 15px !important;
+    line-height: 28px;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 36px !important;
+}
+div#calculator div.column div input[type=number],
+div#calculator div.column div input[type=text],
+div#calculator div.column div input[type=tel],
+div#calculator div.column div input[type=email] {
+    float: left;
+    display: inline-block;
+    width: 100px;
+    max-width: 300px;
+    height: 34px;
+    padding: 0 0 0 10px;
+    border-radius: 4px 0 0 4px;
+    border: 1px solid #767676;
+    font-size: 15px;  
+}
+div#calculator div.column div input[type=text]#totalpriceforsingleitem, 
+div#calculator div.column div input[type=text]#totalprice {
+    float: left;
+    width: fit-content;
+    height: 34px;
+    border: none;
+    margin-top: -5px;
+    padding: 0;
+    font-size: 20px;
+    font-weight: normal;
+    background: none;
+}
+div#calculator div.column div input[type=text]#totalprice {
+    font-weight: 550;
+}
+span.input-group-text {
+    background-color: #f2f2f2;
+    display: inline-block;
+    width: 45px;
+    height: 26px;
+    margin-left: -1px;    
+    padding: 8px 0 0 0;
+    border-radius: 0 4px 4px 0;    
+    border: 1px solid #767676;
+    text-align: center;
+    color: #666;
+}
+div#calculator div.column div input[type=text]#length,
+div#calculator div.column div input[type=text]#width,
+div#calculator div.column div input[type=text]#radius,
+div#calculator div.column div input[type=text]#step,
+div#calculator div.column div input[type=text]#quantity {
+    max-width: 100px;
+}
+div#calculator div.column div.form-group.items,
+div#calculator div.column div.form-group.drawing {
+    display: inline-block;
+    width: 158px;
+}
+div#calculator div.column div.form-group.items {
+    margin-right: 22px;
+}
+div.row.dt {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+div#calculator div.column div label {
+    font-size: 14px;
+}
+div.input.box select {
+    display: block;
+    width: 100%;
+    max-width: 342px;
+    height: 36px;    
+    padding-left: 5px;    
+    border-radius: 4px;
+    font-size: 15px;
+    color: #757575;
+}
+div#calculator div.column.left div.buttons {
+    margin-top: 25px;
+}
+div#calculator.column.right.cost div.buttons {
+    margin-top: 5px;
+}
+div#calculator button[type=button].orderButton,
+div#calculator div.buttons a.count.main.orange {
+    float: right; 
+    display: inline-block;   
+    width: 170px;
+    height: 36px;    
+    background: linear-gradient(rgb(255 178 48), rgb(237 135 23));
+    border-radius: 4px;
+    border: 1px solid #db740a;
+    font-weight: bold;
+    text-shadow: 0 1px 1px #e38800;
+    color: #fff;
+}
+div#calculator div.buttons a.count.main.orange {
+    height: 25px;    
+    padding-top: 9px;
+    text-align: center;
+    text-decoration: none;
+}
+.column.right.illustrationBlock.hidden,
+div#calculator div.column.right.cost.hidden,
+div#calculator button.orderButton.hidden {
+    display: none !important;
+}
+div#calculator div.column.right.cost.visible {
+    display: inline-block;
+    height: 426px;
+}
+div#calculator div.buttons button {
+    width: 158px;
+    height: 36px;
+    margin-right: 16px;
+    border-radius: 4px;
+    border: 1px solid #acacac;
+    font-size: 15px;
+}
+div#calculator div.buttons button.back,
+div#calculator div.buttons a.back {
+    width: 170px;
+    height: 36px;
+    margin-right: 16px;
+    background: linear-gradient(rgb(243 240 240), rgb(216 216 216));
+    border: 1px solid #bababa;
+    border-radius: 4px;
+    font-weight: normal;
+    font-size: 15px;
+    color: rgb(82, 82, 82);
+    text-shadow: rgb(255 255 255) 0px 1px 1px;
+}
+div#calculator.app div.row div#calculator.column.left div.buttons a.back {
+    float: left;
+    width: 170px;
+    height: 26px !important;
+    padding-top: 8px;
+    text-align: center;
+    text-decoration: none;
+}
+div#calculator div.buttons button.count.main,
+div#calculator div.buttons button.reset,
+div#calculator div#orderForm div.buttons button,
+div#calculator div#orderForm div.buttons input[type=submit] {
+    margin-right: 22px;
+    background: linear-gradient(rgb(243 240 240), rgb(216 216 216));
+    border: 1px solid #bababa;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 15px;
+    color: rgb(82, 82, 82);
+    text-shadow: rgb(255 255 255) 0px 1px 1px;
+}
+div#calculator div.buttons button.reset {
+    font-weight: normal;
+}
+
+div#calculator div.buttons button.print,
+div#calculator div#orderForm div.buttons button {
+    background: linear-gradient(rgb(243 240 240), rgb(216 216 216));
+    border: 1px solid #bababa;
+    text-shadow: 0 1px 1px #fff;
+    color: #444;
+}
+div#calculator div#orderForm div.buttons button.back {
+    width: 100px;
+    font-weight: normal;
+}
+div#calculator div.buttons button.count.main:hover,
+div#calculator div.buttons button.count.main:target,
+div#calculator div.buttons button.reset:hover,
+div#calculator div.buttons button.reset:target,
+div#calculator div#orderForm div.buttons button:hover,
+div#calculator div#orderForm div.buttons button:target,
+div#calculator div#orderForm div.buttons input[type=submit]:hover,
+div#calculator div#orderForm div.buttons input[type=submit]:target,
+div#calculator div.buttons button.back:hover,
+div#calculator div.buttons button.back:target,
+div#calculator div.buttons a.back:hover,
+div#calculator div.buttons a.back:target,
+div#calculator div.buttons a.count.main.orange:hover,
+div#calculator div.buttons a.count.main.orange:target {
+    background: orange;
+    border: 1px solid orange;
+    color: #fff;
+    text-shadow: none;
+}
+div#calculator div.total-price {
+    display: block;
+    height: 56px;
+    margin-top: 7px;
+    padding: 0 10px;
+    background: #f6f6f6;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1.5rem;
+    color: black;
+}
+div#calculator div.total-price div {
+    display: inline-block;
+    width: calc(50% - 20px);
+}
+div#calculator div.total-price div.singleItemPrice {
+    width: 170px;
+    height: 42px;
+    margin-right: 8px;
+    border-right: 1px solid #ddd;
+}
+div#calculator div.total-price div span {
+    display: block;
+    font-size: 12px;
+}
+#totalprice {
+    font-size: 1.8rem;    
+    color: black;
+}
+div.column.right.illustrationBlock.visible {
+    width: 320px;
+    height: 400px; 
+    opacity: 0.7;
+}
+div.column.right.illustrationBlock.visible div.illustration {
+    width: 360px;
+    height: 360px;
+    background-size: cover;
+    background-repeat: no-repeat;    
+} 
+div.column.right.illustrationBlock.visible div#showRg.illustration {
+    background-image: url('perforation-illustration-rg-circles-straight.png');
+}
+div.column.right.illustrationBlock.visible div#showRv.illustration {
+    background-image: url('perforation-illustration-rg-circles-offset.png');
+}
+div.column.right.illustrationBlock.visible div#showQg.illustration {
+    background-image: url('perforation-illustration-qg-square-lines.png');
+}
+div.column.right.illustrationBlock.visible div#showQv.illustration {
+    background-image: url('perforation-illustration-qv-square-offset.png');
+}
+div.column.right.illustrationBlock.visible div#showLgl.illustration {
+    background-image: url('perforation-illustration-lg-oval-straight.png');
+}
+div.column.right.illustrationBlock.visible div#showLvl.illustration {
+    background-image: url('perforation-illustration-lv-oval-offset.png');
+}
+div#calculator div.column div input[type=number], 
+div#calculator div.column div input[type=text],
+textarea#zakaz_total,
+textarea#zakaz_error,
+select,
+.select2-search--dropdown .select2-search__field {
+    outline: none;
+}
+textarea#zakaz_total,
+textarea#zakaz_error {
+    border: none;
+}
+textarea#zakaz_total {
+    display: block;
+    width: calc(100% - 30px);
+    height: 250px;
+    margin: 15px 0 0 0;
+    padding: 0;
+    border: none;
+    border-radius: 4px;
+    font-size: 12px;
+    line-height: 1.5em;
+    overflow: hidden;
+}
+textarea#zakaz_error {
+    width: 320px;
+    height: 40px;
+    margin-top: 5px;
+    margin-bottom: 0;
+    padding: 0;
+    background: #fff;
+    border-radius: 4px;
+    border: 1px solid #fff;
+    font-size: 13px;
+    font-weight: 550;
+    line-height: 1.5em;
+    color: #ba1111;
+    overflow: hidden;
+}
+span.errorMessage {
+    position: absolute;
+    z-index: 5;
+    margin-top: 2px;
+    width: 200px;
+    padding: 8px 12px;
+    background: #fffde8;
+    box-shadow: 0 1px 1px #666;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    font-size: 13px;   
+}
+.deepOrangeGradient {
+    background: linear-gradient(270deg, #e28700, #ffb230, #f09600, #eb7b21);
+    background-size: 800% 800%;
+    -webkit-animation: deepOrangeanimatedGradient 12s ease infinite;
+    -moz-animation: deepOrangeanimatedGradient 12s ease infinite;
+    animation: deepOrangeanimatedGradient 12s ease infinite;
+}
+@-webkit-keyframes deepOrangeanimatedGradient {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes deepOrangeanimatedGradient {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes deepOrangeanimatedGradient {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+div#calculator div.column.right.illustrationBlock.visible .instruction.visible ul li a {
+    font-weight: bold;
+    color: #111;
+    text-decoration: none;
+    border-bottom: 1px dotted #333;
+}
+div#calculator div.column.right.illustrationBlock.visible .instruction.visible ul li a:hover,
+div#calculator div.column.right.illustrationBlock.visible .instruction.visible ul li a:target {
+    color: #ee8d12;
+    border-bottom: none;
+}
+div#calculator div.column.right.illustrationBlock.visible .instruction.visible p {
+    margin-bottom: -10px;    
+    padding-bottom: 0;
+    line-height: 1.4em;
+}
+div#calculator div.column.right.illustrationBlock.visible .instruction.visible p,
+div#calculator div.column.right.illustrationBlock.visible .instruction.visible ul li b,
+div#calculator div.column.right.illustrationBlock.visible .instruction.visible ul li a {
+    font-size:13px;
+}
+div#orderForm.visible {
+    float: left;
+    display: inline-block;
+    padding: 0 20px 0 20px;
+}
+div#orderForm.column.left.visible p.introText {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    font-size: 15px;
+}
+div#orderForm.visible div sup.red {
+    display: inline-block;
+    margin-top: 0;
+    background: none;    
+    color: #cd0303;
+}
+div#orderForm.visible div.input_box,
+div#orderForm.visible div.select_box.delivery,
+div#orderForm.visible div.input_box.group.company,
+div#orderForm.visible div.input_box.group.contacts {
+    float: left;
+    display: block;
+    width: 100%;
+    height: fit-content;
+    margin-top: 0;    
+    vertical-align: top;
+}
+div#orderForm.visible div.input_box.firstName {
+    margin-right: 20px;
+}
+div#orderForm.visible div.input_box.group.company,
+div#orderForm.visible div.input_box.group.contacts,
+div#orderForm.visible div.select_box.delivery {
+    padding-top: 5px;
+}
+div#orderForm.visible div.input_box.company, 
+div#orderForm.visible div.input_box.company input.required,
+div#orderForm.visible div.select_box.delivery select#delivery {
+    width: 100%;
+    max-width: 410px;
+}
+div#orderForm.visible div.input_box.fullname input.required, 
+div#orderForm.visible div.input_box.company input.required,
+div#orderForm.visible div.input_box.address input.required,
+div#orderForm.visible div.input_box.group.contacts input.required,
+div#orderForm.visible div.input_box.group.contacts input.email.required,
+div#orderForm.visible div.input_box.group.contacts input.phone.required,
+div#orderForm.visible div.select_box.delivery select#delivery {
+    width: calc(100% - 15px);
+    height: 36px;
+    border-radius: 3px;
+}
+div#orderForm.visible div.select_box.delivery select#delivery {
+    min-width: 407px;
+    width: 407px;
+    max-width: 407px;
+    height: 36px;
+    padding-left: 7px;
+    font-size: 15px;
+}
+div#orderForm.visible div.input_box.fullname, 
+div#orderForm.visible div.input_box.company,
+div#orderForm.visible div.input_box.inn, 
+div#orderForm.visible div.input_box.kpp {
+    display: inline-block;
+    width: calc(100% - 15px);
+}
+div#orderForm.visible div.input_box label,
+div#orderForm.visible div.select_box.delivery label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;    
+}
+div.input_box.contactData {
+    padding-top: 15px;
+    padding-bottom: 4px;
+}
+div.input_box.contactData.innKpp {
+    padding-top: 10px;
+}
+div.input_box.contactData.innKpp input.required {
+    border: 1px solid #ddd !important;
+}
+div.input_box.contactData.innKpp input[name=kpp].required {
+    max-width: 220px;
+}
+div#orderForm.visible div.input_box.fullname,
+div#orderForm.visible div.input_box.company, 
+div#orderForm.visible div.input_box.phone, 
+div#orderForm.visible div.input_box.email, 
+div#orderForm.visible div.input_box.inn, 
+div#orderForm.visible div.input_box.kpp,
+div#orderForm.visible div.input_box.city, 
+div#orderForm.visible div.input_box.street {
+    display: inline-block;
+    width: calc(50% - 20px);
+    margin-top: 0;
+    padding-top: 0;
+    vertical-align: top;
+}
+div.input_box div.fullname, 
+div#orderForm div.input_box div.phone, 
+div#orderForm div.input_box div.inn, 
+div#orderForm div.city, 
+div#orderForm div.street {
+    margin-right:20px;
+}
+div#orderForm input#surname {
+    display: none;
+}
+div#orderForm div.input_box div.organization span.fieldType,
+div#orderForm div.input_box div.email span.fieldType,
+div#orderForm div.input_box div.inn span.fieldType,
+div#orderForm div.input_box div.kpp span.fieldType {
+    margin-top: -5px;
+}
+div#orderForm.visible input.inn {
+    width: 200px;
+}
+div#orderForm.visible input.kpp {
+    width: 280px;
+}
+div#orderForm div.input_box.address input {
+    color:#111 !important;
+}
+div#orderForm.visible div.address.numeric {
+    margin-top: -20px;
+}
+div#orderForm.visible div.address.numeric div {
+    display:inline-block;
+    width: calc(25% - 33px);
+    margin-top: 0;
+    margin-right: 30px;
+    vertical-align: top;    
+}
+div#orderForm.visible div.address.numeric div.building, 
+div#orderForm.visible div.address.numeric div.level, 
+div#orderForm.visible div.address.numeric div.office {
+    width: 60px;
+}
+div#orderForm.visible div.address.numeric div.level,
+div#orderForm.visible div.address.numeric div.office {
+    margin-right: 35px;
+}
+div#orderForm.visible div.address.numeric select.time {
+    display: block;
+    width: 130px;
+    height: 40px;
+    padding: 6px 10px 6px 10px;    
+    border-radius: 3px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+div#orderForm.visible input[placeholder],
+div#orderForm.visible input::-webkit-input-placeholder {
+    color:#666;
+}
+div#orderForm.visible input:target {
+    color:#111;
+}
+div#orderForm div.address span.fieldType i, div#orderForm div.comment span.fieldType i {
+    font-style:normal;
+}
+div#orderForm div.comment span.fieldType i.hidden {
+    display: none;    
+}
+div#orderForm i.subHeader {
+    display: block;
+    width: 100%;
+    height: fit-content;    
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px dotted #d9d5d5;
+    font-size: 15px;    
+    font-style: normal;    
+    color: #656565;
+}
+div#orderForm i.subHeader {
+    max-width: 555px;
+}
+div#orderForm i.subHeader.address {
+    float: left;
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    padding-bottom: 0;
+}
+div#orderForm div.comment {
+    display: block;
+    width: calc(100% + 8px);
+    margin-top: 15px;
+    padding-top: 0;
+}
+div#calculator div#orderForm div.buttons {
+    float: left;
+    display: block;
+    width: 100%;
+    margin-top: 25px;
+}
+div#calculator div#orderForm div.buttons input[type=submit]#createInvoice {
+    float: right;
+    width: 192px;
+    height: 36px;
+    background: linear-gradient(rgb(255 197 103), rgb(239 154 27));
+    border: 1px solid #db740a;
+    color: #fff;
+    text-shadow: 1px 1px 13px #db740a;
+}   
+div#calculator div#orderForm.column.right.visible p {
+    margin-top: 0;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+div.orderMessage h3 {
+    font-size: 17px;
+    margin-top: 10px;
+    font-weight: normal;
+}
+div.orderMessage div.bill {
+    display: block;
+    margin-bottom: 10px;
+}
+div.orderMessage a.bill {
+    margin-bottom: 20px;
+    border-bottom: none;
+    color: #2f85cb;
+    font-weight: bold;
+    text-decoration: none;
+    line-height: 1.5em;
+}

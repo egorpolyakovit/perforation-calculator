@@ -1,0 +1,514 @@
+body {
+    margin: 0;    
+    padding: 0;
+    background: #fff;    
+}
+*  {
+    font-family: Arial, Helvetica, Sans-serif;
+    font-size: 15px;
+}
+.wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+div.mainBlock {
+    max-width: 420px;
+    margin: 120px auto 80px auto;
+    text-align: center;
+}
+div.mainBlock h1 {
+    font-size: 24px;
+    font-weight: normal;
+}
+div.mainBlock p {
+    font-size: 16px;
+    line-height: 1.5em;
+}
+div.mainBlock p.button a {
+    display: block;
+    margin: 0 auto;
+    padding: 8px 16px;
+    max-width: 155px;
+    background: linear-gradient(to bottom, #ffe000, #eaad00);
+    border: 1px solid #daa100;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;    
+    letter-spacing: -0.03em;
+    color: #111;    
+    text-shadow: 0 1px 2px #fff;    
+    text-decoration: none;
+}
+div.mainBlock p.button a:hover,
+div.mainBlock p.button a:target {
+    background:#f3811f;
+    border:1px solid #d56d14;
+    color:rgb(255, 255, 255);
+    text-shadow: none;
+}
+div.grid {
+    position: relative;
+    z-index: 0;
+    display: block;
+    width: calc(100% - 80px);
+    height: auto;
+    margin: 0 auto;
+    text-align: center;
+}
+div.grid.items {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+div.grid.items h2,
+div.grid.faq h2 {
+    font-size: 22px;
+    font-weight: normal;
+}
+div.grid.items ul {
+    width: calc(100% - 10px);
+    padding: 20px 0 0 0;
+    text-align: left;    
+    list-style: none;    
+}
+div.grid.items ul li {
+    display: inline-block;
+    width: calc(25% - 10px);
+    height: 180px;
+    margin: 0 0 10px 5px;
+    background: #f3f3f3;
+    border-radius: 4px;
+    vertical-align: top;
+}
+div.grid.items ul li a {
+    display: block;
+    width: calc(100% - 40px);
+    height: calc(100% - 40px);
+    padding: 20px;
+    background-size: 200px auto;
+    background-position: 80px 50px;
+    background-repeat: no-repeat; 
+    color: #111;
+    text-decoration: none;
+}
+div.grid.items ul li a.heatingMetalGrid {
+    background-position: 80px 60px;
+}
+div.grid.items ul li a.krepezg {
+    background-size: 130px auto;
+    background-position: 80px 50px;
+}
+div.grid div.block {
+    display: inline-block;
+    width: calc(25% - 40px);
+    height: 100px;    
+    margin: 0 5px 0 0;
+    padding: 10px 15px;    
+    background-color: #f3f3f3;
+    border-radius: 5px;
+    text-align: left;
+    vertical-align: top;    
+}
+div.grid div.block.one.mail {
+    background-color: #f3f3f3;
+    background-image: url('https://metalval.ru/calculator/img/email.svg');
+    background-size: 45px auto;
+    background-repeat: no-repeat;
+    background-position: 95% 85%;
+}
+div.grid div.block.two.warehouse {
+    background-color: #f3f3f3;
+    background-image: url('https://metalval.ru/calculator/img/warehouse.svg');
+    background-size: 55px auto;
+    background-repeat: no-repeat;
+    background-position: 95% 85%;
+}
+div.grid div.block.three.chpu {
+    background-color: #f3f3f3;
+    background-image: url('https://metalval.ru/calculator/img/senfeng-sf3015g.png');
+    background-size: 100px auto;
+    background-repeat: no-repeat;
+    background-position: 95% 85%;
+}
+div.block.four.chpu {
+    background-color: #f3f3f3;
+    background-image: url('https://metalval.ru/img/services/perforaziya-icon.png');
+    background-size: 50px auto;
+    background-repeat: no-repeat;
+    background-position: 95% 85%;
+}
+div.grid div.block span {
+    display: block;
+    margin-top: 10px;
+    font-size: 15px;    
+    color: #111;
+}
+div.grid div.block a {
+    font-size:17px;
+    color:#111;    
+    text-decoration: none;
+}
+div.grid div.block.four a {
+    display: block;
+    margin-top: 6px;
+    font-size: 14px;
+}
+div.grid div.block.one span {
+    font-size: 13px;
+}
+body div.grid div.block.two span {
+    font-size: 17px;
+}
+div.grid div.block.one a {
+    display: block;
+    margin-top: 5px;
+    font-size: 19px;
+}
+body div.grid div.block.two span small {
+    display: block;
+    margin-top: 5px;
+}
+body div.grid div.block.three span a {
+    display: block;
+    margin-top: 10px;
+}
+div.grid div.block.three a {
+    display: block;
+    margin-top: 5px;
+}
+
+.container {
+    position: fixed;
+    top: 30px;
+    right: 50px;
+    z-index: 1;
+    display: block;
+    width: 320px;
+    height: 560px;
+    border-radius: 15px;
+    box-shadow: 0 1px 2px #ddd;
+    overflow: hidden;    
+}
+.container.messenger.hidden,
+.options.hidden {
+    display: none;
+}
+.container .bg {
+    position: fixed;
+    top: 40px;
+    right: 55px;
+    z-index: 1;
+    display: block;
+    width: 320px;
+    height: 600px;
+    background-image: url('../img/official-whatsapp-background-image.jpeg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+    opacity: 0.1;
+}
+.container .messages {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    z-index: 20;
+    display: block;
+    width: 320px;
+    height: 380px;
+    padding: 0 10px 200px 10px;
+    background-color: rgba(76, 175, 80, 0.35);
+    border-radius: 10px;
+    overflow: hidden;
+    opacity: 1; 
+}
+
+.clearfix:after {
+    content: "."; 
+    display: block; 
+    height: 0; 
+    clear: both; 
+    visibility: hidden;
+}
+
+.clearfix {display: inline-block;}
+
+/* Hides from IE-mac */
+* html .clearfix {height: 1%;}
+.clearfix {display: block;}
+/* End hide from IE-mac */
+
+
+/*	Options
+	===================================	*/
+
+.options {
+    position: absolute;
+    top: 515px;
+    right: 55px;
+    z-index: 10;
+    width: 320px;
+    height: 85px;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    -moz-animation: show-options 1 ease 1s;
+    -webkit-animation: show-options 1 ease 1s;
+    animation: show-options 1 ease 1s;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.options a:link,
+.options a:visited {
+    display: block;
+    width: fit-content;
+    max-width: fit-content;
+    margin: 0 40px 10px;
+    padding: 6px 0;
+    background: #fff;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+    font-weight: normal;
+    color: #565656;
+    text-decoration: none;
+    text-align: left;
+}
+
+.options a:hover {
+    color: #000;
+    border-color: #000;
+}
+.option-one {
+    display: none !important;
+}
+
+
+/*	Messages
+	===================================	*/
+
+.messages {
+    padding-bottom: 100px;
+}
+
+.messages p {
+    position: relative;
+    display: none;
+    float: left;
+    clear: both;
+    max-width: 80%;
+    margin: 12px 0 0 0;    
+    padding: 8px 12px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+    line-height: 1.35em;
+}
+
+.messages p.question {
+    left: 0;
+}
+
+.messages p.question::before {
+    display: block;
+    position: absolute;
+    top: -30px;
+    left: -80px;
+    -moz-transform: scale(0.38);
+    -webkit-transform: scale(0.38);
+    transform: scale(0.38);
+    content: url('../img/avatar.png');
+}
+
+.messages .message:first-child p {
+    -moz-animation: text-pop 1 ease 0.5s;
+    -webkit-animation: text-pop 1 ease 0.5s;
+    animation: text-pop 1 ease 0.5s;
+}
+
+.messages p.loading {
+    -moz-animation: text-load infinite ease 0.5s;
+    -webkit-animation: text-load infinite ease 0.5s;
+    animation: text-load infinite ease 0.5s;
+}
+
+.messages .message:first-child p:first-child,
+.messages .message.active p:first-child,
+.messages .message.asked p {
+    display: block;
+}
+
+.messages p.response {
+    float: right;
+    margin-right: 20px;
+    background: #d7f1b6;
+    color: #000;    
+    text-shadow: 0 1px #ffff;
+    -moz-animation: text-animate 1 ease 0.5s;
+    -webkit-animation: text-animate 1 ease 0.5s;
+    animation: text-animate 1 ease 0.5s;
+}
+
+a.whatsApp {
+    position: fixed;
+    top: 575px;
+    right: 10px;
+    z-index: 100;
+    display: block;
+    width: 62px;
+    height: 62px;
+    background-color: #22a122;
+    background-image: url(../img/whatsapp-icon.svg);
+    background-size: 62% 62%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 100px;
+    box-shadow: 0 1px 2px #ddd;
+}
+
+
+
+/*	=============================================================
+	Chat Animations
+	=============================================================	*/
+
+@-moz-keyframes show-options {
+    0% {
+        bottom: -100px;
+    }
+    50% {
+        bottom: -100px;
+    }
+    100% {
+        bottom: 10px;
+    }
+}
+@-webkit-keyframes show-options {
+    0% {
+        bottom: -100px;
+    }
+    50% {
+        bottom: -100px;
+    }
+    100% {
+        bottom: 10px;
+    }    
+}
+@keyframes show-options {
+    0% {
+        bottom: -100px;
+    }
+    50% {
+        bottom: -100px;
+    }
+    100% {
+        bottom: 10px;
+    }   
+}
+
+
+@-moz-keyframes text-animate {
+    0% {
+        -moz-transform: translateY(30px);
+	opacity: 0;
+    }
+    100% {
+        -moz-transform: translateY(0);
+        opacity: 1;
+    }
+}
+@-webkit-keyframes text-animate {
+    0% {
+        -webkit-transform: translateY(30px);
+        opacity: 0;
+    }
+    100% {
+        -webkit-transform: translateY(0);
+        opacity: 1;
+    }
+}
+@keyframes text-animate {
+    0% {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+@-moz-keyframes text-pop {
+    0% {
+        -moz-transform: scale(0);
+        opacity: 0;
+    }
+    100% {
+        -moz-transform: scale(1);
+        opacity: 1;
+    }
+}
+@-webkit-keyframes text-pop {
+    0% {
+        -webkit-transform: scale(0);
+        opacity: 0;
+    }
+    100% {
+        -webkit-transform: scale(1);
+        opacity: 1;
+    }
+}
+@keyframes text-pop {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+@-moz-keyframes text-load {
+    0% {
+        -moz-transform: scale(1);
+    }
+    50% {
+    	-moz-transform: scale(0.9);
+    	-moz-box-shadow: inset 0 0 100px #efefef;
+    }
+    100% {
+        -moz-transform: scale(1);
+    }
+}
+@-webkit-keyframes text-load {
+    0% {
+        -webkit-transform: scale(1);
+    }
+    50% {
+    	-webkit-transform: scale(0.9);
+    	-webkit-box-shadow: inset 0 0 100px #efefef;
+    }
+    100% {
+        -webkit-transform: scale(1);
+    }
+}
+@keyframes text-load {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+    	transform: scale(0.9);
+    	box-shadow: inset 0 0 100px #efefef;
+    }
+    100% {
+        transform: scale(1);
+    }
+}

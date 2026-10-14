@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Калькулятор перфорации металла</title>
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/calculator.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="wrap">
+<header><div><h1>Калькулятор перфорации</h1><p>Расчёт отверстий, открытой площади, длины реза и предварительной стоимости.</p></div></header>
+<div class="layout">
+<section class="panel">
+<h2>Параметры листа</h2>
+<div class="fields">
+<label>Схема отверстий<select id="pattern"><option value="rg">Rg · круглые, прямые ряды</option><option value="rv">Rv · круглые, смещённые ряды</option><option value="qg">Qg · квадратные, прямые ряды</option><option value="qv">Qv · квадратные, смещённые ряды</option></select></label>
+<label>Длина, мм<input id="length" type="number" min="1" value="1250"></label>
+<label>Ширина, мм<input id="width" type="number" min="1" value="2500"></label>
+<label>Отверстие: Ø / сторона, мм<input id="size" type="number" min="0.1" step="0.1" value="8"></label>
+<label>Шаг центров, мм<input id="pitch" type="number" min="0.1" step="0.1" value="12"></label>
+<label>Кромка без отверстий, мм<input id="edge" type="number" min="0" value="15"></label>
+<label>Количество листов<input id="quantity" type="number" min="1" step="1" value="1"></label>
+</div>
+<h2>Параметры оценки стоимости <span class="muted">(необязательно)</span></h2>
+<div class="fields">
+<label>Скорость реза, м/мин<input id="speedMMin" type="number" min="0.1" step="0.1" value="8"></label>
+<label>Наладка, мин<input id="setupMin" type="number" min="0" value="30"></label>
+<label>Ставка станка, ₽/час<input id="rateHour" type="number" min="0" value="0"></label>
+<label>Материал, ₽/м²<input id="materialPerM2" type="number" min="0" value="0"></label>
+</div>
+<p class="hint">Предварительная модель: без учёта прожигов, ходов без реза, раскроя, НДС и производственных допусков.</p>
+</section>
+<section class="panel right">
+<h2>Схема перфорации</h2>
+<div class="original-example"><img id="originalPattern" src="assets/img/perforation-illustration-rg-circles-straight.png" alt="Исходная схема перфорации"><span>Схема из исходного калькулятора</span></div>
+<div class="diagram"><svg id="preview" viewBox="0 0 520 350" role="img" aria-label="Предварительный вид расположения отверстий"></svg></div>
+<div id="error" role="alert"></div><div class="stats" id="stats"></div>
+<h2>Предварительная оценка</h2><div id="estimate"></div>
+<div class="actions"><button id="copy" type="button">Скопировать расчёт</button><button id="pdf" type="button" class="secondary">Сохранить в PDF</button></div>
+<p class="hint">В PDF используется печатная версия A4. В окне печати выберите «Сохранить как PDF».</p>
+</section>
+</div>
+</main>
+<section id="printReport" class="print-report" aria-hidden="true">
+<h1>Расчёт перфорации листового металла</h1>
+<p class="report-lead">Инженерно-стоимостной расчёт / демонстрационная модель</p>
+<div id="printLines"></div>
+<p class="print-note">Предварительная оценка без учёта технологических допусков, прожигов, отходов и дополнительных производственных операций.</p>
+</section>
+<script src="src/calc.js"></script><script src="src/ui.js"></script>
+</body></html>
